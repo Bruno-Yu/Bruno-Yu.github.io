@@ -19,12 +19,22 @@
 ]]></content>
   </entry>
   <entry>
-    <title>測試文章</title>
+    <title>Hexo 部署GitHub注意地雷</title>
     <url>/2022/10/17/%E6%B8%AC%E8%A9%A6%E6%96%87%E7%AB%A0/</url>
-    <content><![CDATA[<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">const</span> a = <span class="keyword">new</span> <span class="title class_">Date</span>();</span><br></pre></td></tr></table></figure>
+    <content><![CDATA[<h3 id="特別注意"><a href="#特別注意" class="headerlink" title="特別注意"></a>特別注意</h3><ul>
+<li>本文參考自 Ray的文章: <strong><a href="https://israynotarray.com/hexo/20200924/2892089216/">試著學 Hexo - 部署你的第一個部落格</a></strong></li>
+<li>hexo-deployer-git 運作方式</li>
+</ul>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">npm install <span class="literal">--save</span> hexo<span class="literal">-deployer-git</span></span><br></pre></td></tr></table></figure>
 
-<p>這是新的標題，也是第 一篇文章，建議可以這樣放置文章內容</p>
-<h3 id="如何撰寫MarkDown語法"><a href="#如何撰寫MarkDown語法" class="headerlink" title="如何撰寫MarkDown語法"></a>如何撰寫MarkDown語法</h3><p>這邊開始會介紹該如何插入圖片以及使用markdown語法紀錄</p>
+<ul>
+<li>安裝完畢後要在 hexo &#x2F;_config.yml 做修正 ( 注意: 不是在主題的 themes&#x2F;_config.yml 做修正 )<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  <span class="built_in">type</span>: git</span><br><span class="line">  repo: &lt;https://github.com/hsianghexo/hsianghexo.github.io.git&gt; <span class="comment"># &lt;https://github.com/&gt;[你的 GitHub 帳號]/[你的 GitHub 帳號].github.io.git</span></span><br><span class="line">  branch: main <span class="comment"># 在這邊我是使用 main 當作主要分支，但可以修改</span></span><br><span class="line">  message: <span class="string">&#x27;ithelpt&#x27;</span></span><br></pre></td></tr></table></figure></li>
+<li>上傳指令<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">hexo generate</span><br><span class="line">hexo deploy</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p>注意: 根據hexo 的官網表述 ( <a href="https://github.com/hexojs/hexo/issues/3002">#3002</a> )</p>
+<ul>
+<li>此指令是包含 commit, push—force 等，<strong>所以hexo 的上傳不是自行下git push 完成，這點請注意</strong></li>
+</ul>
 ]]></content>
       <categories>
         <category>hexo</category>
